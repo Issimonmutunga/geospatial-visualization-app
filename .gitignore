@@ -1,16 +1,102 @@
-#General
+# ---------------------------------
+# 🔥 General System & Editor Files
+# ---------------------------------
+.DS_Store
+Thumbs.db
 *.log
-__pycache__/
-node_modules/
+*.out
+*.pid
+*.swp
+*.swo
+*.swn
+
+# Ignore environment variables & secrets
 .env
+.env.local
+config/settings_local.py  # (if using Django)
 
-# Python (Backend)
-*.pyc
-venv/
-*.sqlite3
-instance/
+# ---------------------------------
+# 🐍 Python (Backend)
+# ---------------------------------
+# Virtual environment (stored inside backend/)
+backend/venv/
+backend/__pycache__/
+backend/*.pyc
+backend/*.pyo
+backend/*.pyd
 
-# React (Frontend)
-build/
-dist/
-.cache/
+# Package files
+backend/*.egg
+backend/*.egg-info/
+backend/dist/
+backend/build/
+
+# Ignore database files
+backend/*.sqlite3
+backend/*.db
+backend/*.sql
+
+# PostgreSQL/PostGIS data dumps
+backend/*.pgdata
+
+# ---------------------------------
+# 📦 Node.js (Frontend)
+# ---------------------------------
+frontend/node_modules/
+frontend/npm-debug.log
+frontend/yarn-error.log
+
+# Build files
+frontend/build/
+frontend/dist/
+frontend/.cache
+
+# ---------------------------------
+# 🐳 Docker
+# ---------------------------------
+docker-compose.override.yml
+.dockerignore
+
+# ---------------------------------
+# 📊 GIS & Geospatial Data Files
+# ---------------------------------
+data/raw/
+data/temp/
+data/processed/
+
+*.tif    # Raster files
+*.shp    # Shapefiles
+*.dbf    # Shapefile database
+*.shx    # Shapefile index
+*.prj    # Projection files
+*.geojson  # Large GeoJSON datasets
+*.gpkg   # GeoPackage files
+*.kml    # Google Earth files
+*.kmz    # Compressed KML files
+*.vrt    # GDAL virtual datasets
+
+# ---------------------------------
+# 📒 Jupyter Notebooks (Notebooks Folder)
+# ---------------------------------
+notebooks/.ipynb_checkpoints/
+
+# ---------------------------------
+# 📝 Documentation (Docs Folder)
+# ---------------------------------
+docs/*.log
+docs/*.aux
+docs/*.toc
+docs/*.synctex.gz
+
+# ---------------------------------
+# 🔧 Miscellaneous
+# ---------------------------------
+.vscode/         # VSCode workspace settings
+.idea/           # JetBrains IDE (PyCharm, WebStorm)
+*.iml            # JetBrains project files
+*.bak            # Backup files
+
+# Ignore test coverage reports
+coverage/
+*.cover
+*.coverage

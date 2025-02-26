@@ -1,0 +1,16 @@
+#General
+*.log
+__pycache__/
+node_modules/
+.env
+
+# Python (Backend)
+*.pyc
+venv/
+*.sqlite3
+instance/
+
+# React (Frontend)
+build/
+dist/
+.cache/

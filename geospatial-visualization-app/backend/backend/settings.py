@@ -129,9 +129,13 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
 CORS_ALLOWED_ORIGINS = [
-    'https://localhost:3000', #React Frontend
+    'https://localhost:3000', #React Frontend //Cross Origin
 ]
-
+'''
+Allows Cross Origin Requests
+Prevents CORS Errors
+Only Allows the specified origin
+'''
 MEDIA_URL = '/media/'
 
 MEDIA_ROOT = BASE_DIR/'media'

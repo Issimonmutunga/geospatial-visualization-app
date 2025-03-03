@@ -1,4 +1,3 @@
-git checkout main
 import './App.css';
 
 import React from "react";

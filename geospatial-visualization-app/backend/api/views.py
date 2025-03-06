@@ -5,7 +5,9 @@ from rest_framework.parsers import MultiPartParser
 from .models import UploadedFile
 from .serializers import UploadedFileSerializer
 import json
-
+'''
+geojson data is a nested dictionary. follows the GeoJSON format, 
+which is a standard format for representing geographical data structures.'''
 @api_view(['GET'])
 def visualization(request):
     geojson_data = {

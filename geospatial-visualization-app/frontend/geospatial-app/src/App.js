@@ -8,7 +8,7 @@ import PredictionPanel from "./components/PredictionPanel";
 function App() {
   return (
     <div>
-      <h1>Geospatial Data Visualization & Prediction</h1>
+      <h1>Predictions and Whatever</h1>
       <FileUploader />
       <MapViewer />
       <PredictionPanel />

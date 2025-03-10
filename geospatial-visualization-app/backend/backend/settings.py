@@ -81,10 +81,15 @@ WSGI_APPLICATION = 'backend.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
-DATABASES = {
+DATABASES = {#Edited on 3/10/25:: Skipped on the setting up db.To be done
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        #'ENGINE': 'django.db.backends.sqlite3',
+        'ENGINE':'django.contrib.gis.db.backends.postgis',
+        'NAME': 'geospatial_db',
+        'PASSWORD':'yourpassword',
+        'HOST':'localhost',#To be edited after containerization
+        'PORT': '5432',
+
     }
 }
 

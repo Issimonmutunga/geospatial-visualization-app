@@ -9,11 +9,18 @@ https://docs.djangoproject.com/en/5.1/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.1/ref/settings/
 """
-
+import os
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
+
+#GDAL Settings addition: 3/11/2025
+import os
+
+GDAL_LIBRARY_PATH = os.environ.get("GDAL_LIBRARY_PATH", "C:/OSGeo4W/bin/gdal310.dll")
+PROJ_LIB = os.environ.get("PROJ_LIB", "C:/OSGeo4W/share/proj")
+
 
 
 # Quick-start development settings - unsuitable for production

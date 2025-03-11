@@ -100,3 +100,7 @@ docs/*.synctex.gz
 coverage/
 *.cover
 *.coverage
+
+
+# Added the Django .env file for passwprds and credentials
+.env

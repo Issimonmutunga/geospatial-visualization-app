@@ -11,13 +11,23 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 import os
 from pathlib import Path
-from os import environ
+import environ
 
 env = environ.Env()
 environ.Env.read_env()  # Reads the .env file
 
+BASE_DIR = Path(__file__).resolve().parent.parent
+
+# Initialize environment variables
+env = environ.Env(DEBUG=(bool, False))
+
+# Explicitly load the .env file
+env.read_env(os.path.join(BASE_DIR, '.env'))
+
+
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = env('SECRET_KEY')
+SECRET_KEY = env('SECRET_KEY',default='fallback-secret-key')
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -93,7 +103,7 @@ WSGI_APPLICATION = 'backend.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
-DATABASES = {#Edited on 3/10/25:: Skipped on the setting up db.To be done
+DATABASES = {#Edited on 3/10/25:: Skipped on the setting up db.To be done tommorrow
     'default': {
         #'ENGINE': 'django.db.backends.sqlite3',
         'ENGINE':'django.contrib.gis.db.backends.postgis',
@@ -132,7 +142,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Africa/Nairobi'
 
 USE_I18N = True
 

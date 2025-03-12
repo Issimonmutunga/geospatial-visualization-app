@@ -11,12 +11,18 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 import os
 from pathlib import Path
+from os import environ
+
+env = environ.Env()
+environ.Env.read_env()  # Reads the .env file
+
+# SECURITY WARNING: keep the secret key used in production secret!
+SECRET_KEY = env('SECRET_KEY')
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 #GDAL Settings addition: 3/11/2025
-import os
 
 GDAL_LIBRARY_PATH = os.environ.get("GDAL_LIBRARY_PATH", "C:/OSGeo4W/bin/gdal310.dll")
 PROJ_LIB = os.environ.get("PROJ_LIB", "C:/OSGeo4W/share/proj")
@@ -26,8 +32,7 @@ PROJ_LIB = os.environ.get("PROJ_LIB", "C:/OSGeo4W/share/proj")
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
 
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-amxy^zq6dm^s75(@2vm(t^f^&54damo6x&)n)2(pp6t1b97&78'
+
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -92,13 +97,15 @@ DATABASES = {#Edited on 3/10/25:: Skipped on the setting up db.To be done
     'default': {
         #'ENGINE': 'django.db.backends.sqlite3',
         'ENGINE':'django.contrib.gis.db.backends.postgis',
-        'NAME': 'geospatial_db',
-        'PASSWORD':'yourpassword',
+        'NAME': env('POSTGRES_NAME'),
+        'USER': env('POSTGRES_USER'),
+        'PASSWORD':env('POSTGRES_PASSWORD'),
         'HOST':'localhost',#To be edited after containerization
         'PORT': '5432',
 
     }
 }
+
 
 
 # Password validation

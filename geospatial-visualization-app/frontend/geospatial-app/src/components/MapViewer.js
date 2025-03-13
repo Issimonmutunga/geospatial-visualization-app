@@ -18,7 +18,7 @@ const MapViewer = () => {
   }, []);
 
   return (
-    <MapContainer center={[40.7128, -74.006]} zoom={10} style={{ height: "500px", width: "100%" }}>
+    <MapContainer center={[-1.286389,36.817223]} zoom={15} style={{ height: "500px", width: "100%" }}>
       <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
       {geoData && <GeoJSON data={geoData} />}
     </MapContainer>

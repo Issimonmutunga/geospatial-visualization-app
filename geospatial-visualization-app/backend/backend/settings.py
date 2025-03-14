@@ -164,7 +164,6 @@ CORS_ALLOWED_ORIGINS = [
     'https://localhost:3000', #React Frontend //Cross Origin
 ]
 
-CORS_ALLOW_ALL_ORIGINS = True
 '''
 Allows Cross Origin Requests
 Prevents CORS Errors

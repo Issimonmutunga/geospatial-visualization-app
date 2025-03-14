@@ -17,9 +17,11 @@ const FileUploader = () => {
     formData.append("file", file);
 
     try {
-      await axios.post("/api/upload/", formData, {
+      console.log("Attempting to upload file..."); 
+      const response = await axios.post("/api/upload/", formData, {
         headers: { "Content-Type": "multipart/form-data" },
       });
+      console.log("Response data:", response.data)//Logs the response for debugging purposes
       alert("File uploaded successfully!");
     } catch (error) {
       console.error("File upload error:", error);

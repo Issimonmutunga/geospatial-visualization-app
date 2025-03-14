@@ -47,10 +47,10 @@ PROJ_LIB = os.environ.get("PROJ_LIB", "C:/OSGeo4W/share/proj")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = [
+'''ALLOWED_HOSTS = [
     "localhost",
     "127.0.0.1",
-]
+]  To be edited later.......................'''
 
 
 # Application definition
@@ -160,10 +160,7 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-
-CORS_ALLOWED_ORIGINS = [
-    'https://localhost:3000', #React Frontend //Cross Origin
-]
+CORS_ORIGIN_ALLOW_ALL = True  # Allow all origins (for development only)
 
 '''
 Allows Cross Origin Requests

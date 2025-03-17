@@ -104,3 +104,26 @@ coverage/
 
 # Added the Django .env file for passwprds and credentials
 .env
+# Ignore Docker containers and volumes
+*.log
+docker-compose.override.yml
+.env
+.env.local
+.env.*.local
+
+# Ignore Docker volumes and databases
+volumes/
+pg_data/
+*.pid
+
+# Ignore build artifacts
+**/__pycache__/
+backend/__pycache__/
+frontend/node_modules/
+frontend/build/
+backend/staticfiles/
+backend/media/
+
+# Ignore Docker-related files
+backend/.dockerignore
+frontend/.dockerignore

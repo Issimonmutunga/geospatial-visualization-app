@@ -8,7 +8,7 @@ const MapViewer = () => {
   const [geoData, setGeoData] = useState(null);
 
   useEffect(() => {
-    axios.get("/api/visualization") // Fetch GeoJSON data from backend
+    axios.get("/api/views") // Fetch GeoJSON data from backend.Pls edit 3/18/2025
       .then((response) => {
         setGeoData(response.data);
       })

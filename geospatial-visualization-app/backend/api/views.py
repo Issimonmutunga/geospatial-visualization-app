@@ -15,7 +15,7 @@ from django.conf import settings
 
 @api_view(['GET'])
 def visualization(request):
-    media_folder = os.path.join(os.getcwd,"media\uploads")
+    media_folder = os.path.join(os.getcwd,"media","uploads")
     geojson_features = []
     for file in os.listdir(media_folder):
         file_path = os.path.join(media_folder,file)

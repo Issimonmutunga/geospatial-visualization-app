@@ -5,24 +5,29 @@ from rest_framework.parsers import MultiPartParser
 from .models import UploadedFile
 from .serializers import UploadedFileSerializer
 import json
+#Started here 3/18/2025
+import os
+import geopandas as gpd
+from rest_framework.decorators import api_view
+from rest_framework.response import Response
+from django.conf import settings
+
 
 @api_view(['GET'])
 def visualization(request):
-    geojson_data = {
-        "type": "FeatureCollection",
-        "features": [
-            {
-                "type": "Feature",
-                "geometry": {
-                    "type": "Point",
-                    "coordinates": [-74.006, 40.7128]
-                },
-                "properties": {"name": "Sample Point"}
-            }
-        ]
+    media_folder = os.path.join(os.getcwd,"media\uploads")
+    geojson_features = []
+    for file in os.listdir(media_folder):
+        file_path = os.path.join(media_folder,file)
+        if file.lower().endswith(('.shp','.geojson','.json')):
+              gdf = gpd.read_file(file_path)
+              geojson_data = gdf.__geo_interface__
+              geojson_features.extend(geojson_data.get("features", []))
+    final_geojson = {
+        "type":"FeatureCollection",
+        "features": geojson_features
     }
-    return Response(geojson_data)
-
+    return Response(final_geojson)    
 @api_view(['POST'])
 @parser_classes([MultiPartParser])  # Apply MultiPartParser correctly
 def file_upload(request):

@@ -11,7 +11,7 @@ const MapViewer = () => {
   useEffect(() => {
     axios.get("/api/visualization")
       .then((response) => {
-        setGeoData(response.data);
+        setGeoData(response.data);//3/19/2025
       })
       .catch((error) => {
         console.error("Error fetching geospatial data:", error);

@@ -6,28 +6,46 @@ from .models import UploadedFile
 from .serializers import UploadedFileSerializer
 import json
 #Started here 3/18/2025
-import os
-import geopandas as gpd
+import os, zipfile, tempfile,geopandas as gpd
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from django.conf import settings
 
 
+
 @api_view(['GET'])
 def visualization(request):
-    media_folder = os.path.join(os.getcwd,"media","uploads")
+    media_folder = os.path.join(os.getcwd(), "media", "uploads")
     geojson_features = []
+
+    if not os.path.exists(media_folder):
+        return Response({"error": "Uploads folder not found."}, status=404)
+
     for file in os.listdir(media_folder):
-        file_path = os.path.join(media_folder,file)
-        if file.lower().endswith(('.shp','.geojson','.json')):
-              gdf = gpd.read_file(file_path)
-              geojson_data = gdf.__geo_interface__
-              geojson_features.extend(geojson_data.get("features", []))
+        file_path = os.path.join(media_folder, file)
+
+        try:
+            if file.lower().endswith('.zip'):
+                with tempfile.TemporaryDirectory() as tmpdir:
+                    with zipfile.ZipFile(file_path, 'r') as zip_ref:
+                        zip_ref.extractall(tmpdir)
+                    for extracted_file in os.listdir(tmpdir):
+                        if extracted_file.endswith('.shp'):
+                            shp_path = os.path.join(tmpdir, extracted_file)
+                            gdf = gpd.read_file(shp_path)
+                            geojson_features.extend(gdf.__geo_interface__.get("features", []))
+
+            elif file.lower().endswith(('.shp', '.geojson', '.json')):
+                gdf = gpd.read_file(file_path)
+                geojson_features.extend(gdf.__geo_interface__.get("features", []))
+        except Exception as e:
+            print(f"Error processing {file}: {e}")
+
     final_geojson = {
-        "type":"FeatureCollection",
+        "type": "FeatureCollection",
         "features": geojson_features
     }
-    return Response(final_geojson)    
+    return Response(final_geojson) 
 @api_view(['POST'])
 @parser_classes([MultiPartParser])  # Apply MultiPartParser correctly
 def file_upload(request):

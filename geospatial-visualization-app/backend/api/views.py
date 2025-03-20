@@ -16,6 +16,7 @@ from django.conf import settings
 @api_view(['GET'])
 def visualization(request):
     media_folder = os.path.join(os.getcwd(), "media", "uploads")
+    print(f"Checking media folder at: {media_folder}")
     geojson_features = []
 
     if not os.path.exists(media_folder):
@@ -23,7 +24,6 @@ def visualization(request):
 
     for file in os.listdir(media_folder):
         file_path = os.path.join(media_folder, file)
-
         try:
             if file.lower().endswith('.zip'):
                 with tempfile.TemporaryDirectory() as tmpdir:

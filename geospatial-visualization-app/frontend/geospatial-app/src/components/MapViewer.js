@@ -9,7 +9,7 @@ const MapViewer = () => {
   const [geoData, setGeoData] = useState(null);
 
   useEffect(() => {
-    axios.get("/api/visualization")
+    axios.get("/api/visualization/")
       .then((response) => {
         setGeoData(response.data);//3/19/2025
       })
@@ -20,17 +20,30 @@ const MapViewer = () => {
 
   function FitBounds({ geoData }) {
     const map = useMap();
+
     useEffect(() => {
       if (geoData) {
-        const bounds = L.geoJSON(geoData).getBounds();
-        map.fitBounds(bounds);
+        const layer = L.geoJSON(geoData)
+        const bounds = layer.getBounds();
+        if (
+          bounds.isValid()&& // Check if Leaflet recognizes the bounds as valid
+          !(
+            bounds.getSouthWest().lat === bounds.getNorthEast().lat
+            &&
+            bounds.getSouthWest().lng === bounds.getNorthEast().lng
+          )
+        ){
+          map.fitBounds(bounds);
+        } else {
+          console.warn("Invalid bounds calculated:", bounds);
+        }
       }
     }, [geoData, map]);
     return null;
   }
 
   return (
-    <MapContainer style={{ height: "500px", width: "100%" }} zoom={2} center={[0, 0]}>
+    <MapContainer style={{ height: "500px", width: "100%" }} zoom={10} center={[0, 0]}>
       <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
       {geoData && (
         <>

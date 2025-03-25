@@ -20,7 +20,7 @@ const MapViewer = () => {
 
   function FitBounds({ geoData }) {
     const map = useMap();
-
+//Start here 3/25/2025 -- Invalid bounds
     useEffect(() => {
       if (geoData) {
         const layer = L.geoJSON(geoData)

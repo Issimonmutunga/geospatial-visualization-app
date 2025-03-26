@@ -75,7 +75,7 @@ def visualization(request):
                                     "properties": row.drop(labels='geometry').to_dict()
                                 })
 
-            elif file.lower().endswith(('.shp', '.geojson', '.json')):#Checks the file extension
+            elif file.lower().endswith(('.shp', '.geojson', '.json')):#Checks the file
                 gdf = gpd.read_file(file_path)
                 epsg = gdf.crs.to_epsg() if gdf.crs else get_epsg_from_prj(file_path.replace('.shp', '.prj'))
                 for _, row in gdf.iterrows():

@@ -11,7 +11,7 @@ import Panel from './components/panel';
 function App() {
   return (
     <div>
-      <h2>----</h2>
+      <h2>Yed GIS</h2>
       <MapViewer />
       <Panel/>
       <FileUploader />  

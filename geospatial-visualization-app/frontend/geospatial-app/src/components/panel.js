@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from "react";
 import axios from "../api"; 
 
+
 const Panel = () => {
   const [files, setFiles] = useState([]);
 
   useEffect(() => {
     const fetchFiles = async () => {
       try {
-        const response = await axios.get("/api/files/"); 
+        const response = await axios.get("../media/uploads"); 
         setFiles(response.data); 
       } catch (error) {
         console.error("Error fetching file list:", error);
@@ -18,25 +19,31 @@ const Panel = () => {
   }, []);
 
   return (
-    <div style={{
+  <div
+    style={{
       width: "250px",
-      height: "100vh",
+      height: "40vh",
       overflowY: "auto",
       backgroundColor: "#f4f4f4",
       padding: "1rem",
-      position: "fixed",
+      position: "absolute",
       left: 0,
-      top: 0,
-      borderRight: "1px solid #ccc",
-      zIndex: 1000
-    }}>
-      <h3>Uploaded Files</h3>
-      <ul>
-        {files.map((file, index) => (
-          <li key={index}>{file}</li>
-        ))}
-      </ul>
-    </div>
+      top: 150,
+      border: "1px solid #ccc",
+      zIndex: 1000,
+      cursor: "move",
+      borderRadius: "8px",
+      boxShadow: "0 2px 8px rgba(0, 0, 0, 0.1)",
+    }}
+  >
+    <h3>Uploaded Files</h3>
+    <ul>
+      {files.map((file, index) => (
+        <li key={index}>{file}</li>
+      ))}
+    </ul>
+  </div>
+
   );
 };
 

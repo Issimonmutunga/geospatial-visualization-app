@@ -43,7 +43,7 @@ const MapViewer = () => {
   }
 
   return (
-    <MapContainer style={{ height: "400px", width: "70%" }} zoom={10} center={[0, 0]}>
+    <MapContainer style={{ height: "600px", width: "100%" }} zoom={10} center={[0, 0]}>
       <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
       {geoData && (
         <>

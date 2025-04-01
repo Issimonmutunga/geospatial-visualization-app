@@ -78,28 +78,28 @@ This interactive web application allows users to upload geospatial data, visuali
 
 ## 📅 Development Plan
 
-### Week 1: Setup & GIS Backend
+### 1.Setup & GIS Backend
 
 - Research & project planning
 - Set up PostgreSQL/PostGIS and sample datasets
 - Build Django API for spatial data operations
 - Implement CRUD endpoints and refine schema
 
-### Week 2: Frontend & Map Integration
+### 2.Frontend & Map Integration
 
 - Set up React and integrate Leaflet for map visualization
 - Implement file upload feature
 - Display uploaded data interactively
 - Add spatial querying and filtering
 
-### Week 3: Machine Learning Integration
+### 3: Machine Learning Integration
 
 - Identify ML use case (e.g., suitability analysis, energy prediction)
 - Train a basic ML model with Scikit-learn
 - Integrate ML model with backend API
 - Visualize ML predictions on interactive maps
 
-### Week 4: Optimization & Deployment
+### 4: Optimization & Deployment
 
 - Optimize backend & ML performance
 - Containerize with Docker

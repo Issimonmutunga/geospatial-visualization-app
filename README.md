@@ -35,7 +35,7 @@ This interactive web application allows users to upload geospatial data, visuali
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/your-repo/geospatial-web-app.git
+   git clone https://github.com/Issimonmutunga/geospatial-web-app.git
    cd geospatial-web-app
    ```
 2. Set up a virtual environment:

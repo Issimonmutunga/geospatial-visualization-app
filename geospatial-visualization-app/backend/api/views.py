@@ -42,6 +42,27 @@ def get_epsg_from_prj(prj_path):
     except Exception as e:
         logger.warning(f"Could not determine EPSG from {prj_path}: {e}")
         return 4326  # fallback
+    
+
+
+@api_view(['GET'])
+def file_list(request):
+    """Returns only the list of file names."""
+    media_folder = os.path.join(os.getcwd(), "media", "uploads")
+    logger.info(f"Checking media folder at: {media_folder}")
+
+    file_names = []
+
+    if not os.path.exists(media_folder):
+        return Response({"error": "Uploads folder not found."}, status=404)
+
+    for file in os.listdir(media_folder):
+        file_path = os.path.join(media_folder, file)
+        name, _ = os.path.splitext(file)
+        file_names.append(name)
+
+    return Response({"files": file_names})
+
 
 
 @api_view(['GET'])

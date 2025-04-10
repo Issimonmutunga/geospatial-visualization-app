@@ -1,0 +1,44 @@
+services:
+  db:
+    image: postgis/postgis:15-3.3
+    container_name: postgres_db
+    restart: always
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: geospatial_db
+    volumes:
+      - pg_data:/var/lib/postgresql/data
+    ports:
+      - "5433:5432" #Local Postgres is on 5432.Avoiding conflicts
+
+  backend:
+    build: ./backend
+    container_name: django_backend
+    depends_on:
+      - db
+    volumes:
+      - ./backend:/app
+    ports:
+      - "8000:8000"
+    environment:
+      - DB_HOST=${DB_HOST}
+      - DB_PORT=${DB_PORT}
+      - DB_NAME=${DB_NAME}
+      - DB_USER=${DB_USER}
+      - DB_PASSWORD=${DB_PASSWORD}
+
+  frontend:
+    build: ./frontend/geospatial-app
+    container_name: react_frontend
+    depends_on:
+      - backend
+    volumes:
+      - ./frontend/geospatial-app:/app
+    ports:
+      - "3000:3000"
+    environment:
+      - REACT_APP_BACKEND_URL=http://localhost:8000
+
+volumes:
+  pg_data:

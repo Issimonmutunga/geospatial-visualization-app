@@ -12,9 +12,9 @@ function App() {
   return (
     <div>
       <h2>Yed GIS</h2>
+      <FileUploader /> 
       <MapViewer />
-      <Panel/>
-      <FileUploader />  
+      <Panel />
       <PredictionPanel />
     </div>
   );

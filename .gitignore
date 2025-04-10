@@ -18,7 +18,8 @@ config/settings_local.py  # (if using Django)
 # ---------------------------------
 # 🐍 Python (Backend)
 # ---------------------------------
-# Virtual environment (stored inside backend/)
+# Virtual environment
+venv/
 backend/venv/
 backend/__pycache__/
 backend/*.pyc
@@ -101,8 +102,7 @@ coverage/
 *.cover
 *.coverage
 
-
-# Added the Django .env file for passwprds and credentials
+# Added the Django .env file for passwords and credentials
 .env
 # Ignore Docker containers and volumes
 *.log

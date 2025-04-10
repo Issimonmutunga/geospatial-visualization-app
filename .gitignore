@@ -43,7 +43,9 @@ backend/*.pgdata
 # ---------------------------------
 # 📦 Node.js (Frontend)
 # ---------------------------------
+node_modules/
 frontend/node_modules/
+**/node_modules/
 frontend/npm-debug.log
 frontend/yarn-error.log
 
@@ -124,6 +126,5 @@ frontend/build/
 backend/staticfiles/
 backend/media/
 
-# Ignore Docker-related files
-backend/.dockerignore
-frontend/.dockerignore
+# Ignore uploaded media files in backend
+backend/media/uploads/*

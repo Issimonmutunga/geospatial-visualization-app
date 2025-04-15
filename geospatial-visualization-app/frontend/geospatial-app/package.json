@@ -1,32 +1,24 @@
 {
   "name": "geospatial-app",
-  "version": "0.1.0",
+  "version": "1.0.0",
+  "description": "React App Frontend",
+  "author": "Simon Mutunga",
+  "license": "ISC",
   "private": true,
-  "dependencies": {
-    "@testing-library/dom": "^10.4.0",
-    "@testing-library/jest-dom": "^6.6.3",
-    "@testing-library/react": "^16.2.0",
-    "@testing-library/user-event": "^13.5.0",
-    "axios": "^1.8.1",
-    "leaflet": "^1.9.4",
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0",
-    "react-draggable": "^4.4.6",
-    "react-leaflet": "^5.0.0",
-    "react-scripts": "5.0.1",
-    "web-vitals": "^2.1.4"
-  },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
+  "dependencies": {
+    "axios": "^1.8.4",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-scripts": "^5.0.1",
+    "sonner": "^2.0.3",
+    "sooner": "^1.1.4",
+    "web-vitals": "^4.2.4"
   },
   "browserslist": {
     "production": [

@@ -1,11 +1,16 @@
+// Import React and ReactDOM libraries
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+
+// Import global CSS styling
 import './index.css';
+
+// Import the root App component and performance reporting utility
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
-
-
+// Create a root and render the App component inside <React.StrictMode>
+// StrictMode helps highlight potential problems during development
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
@@ -13,7 +18,6 @@ root.render(
   </React.StrictMode>
 );
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
+// Optional: Measure app performance by passing a logging or analytics function
+// Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();

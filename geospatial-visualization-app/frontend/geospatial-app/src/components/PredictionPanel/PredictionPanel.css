@@ -1,0 +1,26 @@
+.prediction-panel {
+    padding: 1.5rem; /* Adds spacing inside the panel */
+    width: 100%; /* Ensures the panel takes full width */
+    max-width: 28rem; /* Limits the maximum width of the panel */
+    background-color: white; /* Sets the background color to white */
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1); /* Adds a subtle shadow for depth */
+}
+
+.prediction-title {
+    font-size: 1.125rem; /* Sets the font size for the title */
+    font-weight: 700; /* Makes the title bold */
+    margin-bottom: 1rem; /* Adds spacing below the title */
+}
+
+.prediction-input {
+    margin-bottom: 1rem; /* Adds spacing below the input field */
+}
+
+.prediction-button {
+    width: 100%; /* Makes the button stretch to the full width */
+}
+
+.prediction-result {
+    margin-top: 1rem; /* Adds spacing above the result */
+    font-size: 0.875rem; /* Reduces the font size for the result */
+}

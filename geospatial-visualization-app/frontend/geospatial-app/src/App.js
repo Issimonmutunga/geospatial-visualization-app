@@ -1,39 +1,41 @@
+// Import global CSS styling
 import './App.css';
+
+// Import necessary modules and components
 import React from "react";
-import MapViewer from "./components/MapViewer";
-import FileUploader from "./components/FileUploader";
-import PredictionPanel from "./components/PredictionPanel";
-import Panel from './components/panel';
-import ErrorBoundary from './ErrorBoundary'
+import MapViewer from "./components/MapViewer/MapViewer"; // Component for displaying a Leaflet map
+import FileUploader from "./components/FileUploader/FileUploader"; // Component to upload files
+import PredictionPanel from "./components/PredictionPanel/PredictionPanel"; // Component to make predictions
+import Panel from './components/Panel/panel'; // Component to display list of uploaded files
+import ErrorBoundary from './ErrorBoundary'; // Component to catch runtime errors in children
 
 function App() {
   return (
-<div>
-<ErrorBoundary>
-<h2>Yed GIS</h2>
-      <FileUploader />
+    <div className="app"> {/* Root container */}
+      <ErrorBoundary> {/* Wrap app content in error boundary for graceful failure */}
+        <h1 className="app-header">VPA</h1> {/* App header */}
 
-      {/* Main row: Left panel (25%) and MapViewer (75%) */}
-      <div style={{ display: "flex", height: "80vh", marginTop: "10px" }}>
-        
-        {/* Left column: Panel + PredictionPanel stacked */}
-        <div style={{ width: "25%", display: "flex", flexDirection: "column", height: "100%" }}>
-          <div style={{ flex: 1, overflowY: "auto", borderBottom: "1px solid #ccc" }}>
-            <Panel />
+        <div className="main-row"> {/* Main layout with two columns */}
+          
+          {/* Left column: contains upload panel, file list, and prediction panel */}
+          <div className="left-column">
+            <div className="top-panel">
+              <FileUploader /> {/* Component for file upload */}
+              <Panel /> {/* Component showing uploaded files */}
+            </div>
+            <div className="bottom-panel">
+              <PredictionPanel /> {/* Component for running predictions */}
+            </div>
           </div>
-          <div style={{ flex: 1, overflowY: "auto" }}>
-            <PredictionPanel />
+
+          {/* Right column: contains the map viewer */}
+          <div className="right-column">
+            <MapViewer /> {/* Map component displaying GeoJSON data */}
           </div>
         </div>
-
-        {/* Right column: MapViewer */}
-        <div style={{ width: "75%", height: "100%" }}>
-          <MapViewer />
-        </div>
-      </div>
-</ErrorBoundary>
+      </ErrorBoundary>
     </div>
   );
 }
 
-export default App;
+export default App; // Export the App component as default

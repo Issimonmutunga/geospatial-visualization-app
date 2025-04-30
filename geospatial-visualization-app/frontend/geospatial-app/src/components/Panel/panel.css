@@ -1,0 +1,12 @@
+.panel-card{
+    /*position: absolute; Floating window mode */
+    top: 150px;/* 150 px from the top */
+    left: 0;/* Stuck to the left edge */
+    z-index: 50 ;/* Shows above most content */
+    width: 250px; /* Fixed width */
+    height: 40vh;/* Height scales with screen */
+    padding: 1rem ;/* 16px spacing around content*/
+    background-color: white ;/* */
+    border-radius: 0.75rem;/* */
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1); /* Subtle 3D Effect */   
+}

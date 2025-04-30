@@ -1,0 +1,17 @@
+.fileuploader-card {
+    max-width: 400px; /* Limits the width for better layout control */
+    padding: 1.5rem; /* Adds inner spacing for content breathing room */
+    background-color: #ffffff; /* Sets a clean white background */
+    border: 1px solid #e0e0e0; /* Adds a light border for subtle separation */
+    border-radius: 12px; /* Rounds the corners for a softer look */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.06); /* Adds depth with a gentle shadow */
+    display: flex; /* Enables vertical layout of child elements */
+    flex-direction: column; /* Stacks children vertically */
+    gap: 1rem; /* Adds space between child elements */
+}
+
+.fileuploader-title {
+    font-size: 1.2rem; /* Increases font size for visual hierarchy */
+    font-weight: 600; /* Makes the text semi-bold for emphasis */
+    margin-bottom: 0.5rem; /* Adds spacing below the title */
+}

@@ -1,0 +1,14 @@
+.mapviewer-map {
+    width: 40%; /* Limits the map width to 40% of its parent container */
+    height: 50vh; /* Sets the map height to half of the viewport height */
+    border-width: 10px; /* Applies a thick border (actual border style/color should be set elsewhere) */
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1); /* Adds a soft shadow for depth */
+}
+
+/* Sidebar styles for the MapViewer component */
+.mapviewer-sidebar {
+    background-color: #f9fafb; /* Sets a very light gray background for contrast */
+    padding: 1rem; /* Adds inner spacing for better readability */
+    font-size: 0.875rem; /* Sets text size to small for compact layout */
+    color: #333; /* Uses dark gray for better text legibility */
+}

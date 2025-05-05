@@ -29,7 +29,7 @@ const Panel = () => {
 
   return (
     <Card className="panel-card"> {/* Card container for the panel */}
-      <h4 className="text-lg font-semibold mb-2">Uploaded Files</h4> {/* Title of the panel */}
+      <h4 className="panel-title">Layers</h4> {/* Title of the panel */}
       {error ? (
         <p className="text-red-500">{error}</p> // Display error message if there's an error
       ) : (

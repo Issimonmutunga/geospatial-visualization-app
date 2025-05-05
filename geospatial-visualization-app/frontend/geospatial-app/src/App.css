@@ -1,34 +1,45 @@
+
 .app {
-  font-family: sans-serif; /* Sets the font for the app */
-  padding: 1rem; /* Adds padding around the app's content */
+  top: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: rgb(173, 216, 230);
+  border-radius:12px ;
+  padding: 20px;
 }
-
 .app-header {
-  text-align: center; /* Centers the header text */
-  margin-bottom: 1rem; /* Adds space below the header */
+  color: rgb(135, 104, 104);
+  text-align: center;
+}
+.app-subheader {
+  color: rgb(135, 104, 104);
+  text-align: center;
 }
 
-.main-row {
-  display: flex; /* Applies flexbox layout */
-  flex-direction: column; /* changed from 'row' to 'column' to stack items vertically */
-  gap: 1rem; /* Adds space between the items in the column */
+.left-column {
+  left: 0;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 30vw;
+  background-color: white;
 }
-
-.left-column,
 .right-column {
-  width: 100%; /* Makes both columns take up the full width */
+  position: absolute;
+  right: 0;
+  height: 100vh;
+  width: 60vw;
+  padding: 1rem;
+  background-color: rgb(173, 216, 230)
 }
-
-.top-panel {
-  display: flex; /* Uses flexbox layout for the panel */
-  flex-direction: column; /* Stacks items vertically in the top panel */
-  gap: 0.5rem; /* Adds small space between elements in the panel */
-}
-
-.bottom-panel {
-  flex-grow: 1; /* Allows the bottom panel to expand and take up remaining space */
-}
-
-.map-panel {
-  width: 100%; /* Makes the map panel take up the full width */
+@media (max-width: 768px) {
+  .card-container {
+      flex-direction: column;
+      align-items: center;
+  }
+  .column {
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: center;
+  }
 }

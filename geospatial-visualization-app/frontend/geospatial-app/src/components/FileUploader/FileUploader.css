@@ -1,17 +1,31 @@
 .fileuploader-card {
-    max-width: 400px; /* Limits the width for better layout control */
+    /*max-width: 400px; /* Limits the width for better layout control */
+    width: 35vw;
     padding: 1.5rem; /* Adds inner spacing for content breathing room */
-    background-color: #ffffff; /* Sets a clean white background */
-    border: 1px solid #e0e0e0; /* Adds a light border for subtle separation */
-    border-radius: 12px; /* Rounds the corners for a softer look */
-    box-shadow: 0 4px 8px rgba(0,0,0,0.06); /* Adds depth with a gentle shadow */
+    background-color: rgb(173, 216, 230);/* Sets a clean white background */
+    border: 2px solid #e0e0e0; /* Adds a light border for subtle separation */
+    box-shadow: 8px 8px 8px rgba(0,0,0,0.06); /* Adds depth with a gentle shadow */
     display: flex; /* Enables vertical layout of child elements */
     flex-direction: column; /* Stacks children vertically */
+    flex-wrap: wrap;
     gap: 1rem; /* Adds space between child elements */
 }
 
 .fileuploader-title {
+
     font-size: 1.2rem; /* Increases font size for visual hierarchy */
     font-weight: 600; /* Makes the text semi-bold for emphasis */
     margin-bottom: 0.5rem; /* Adds spacing below the title */
+}
+
+@media (max-width: 768px) {
+    .card-container {
+        flex-direction: column;
+        align-items: center;
+    }
+    .column {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
 }

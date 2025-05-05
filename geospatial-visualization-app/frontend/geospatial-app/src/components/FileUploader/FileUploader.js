@@ -36,7 +36,7 @@ const FileUploader = () => {
 
   return (
     <div className="fileuploader-card"> {/* Card container for file uploader */}
-      <h3 className="fileuploader-title">Upload a File</h3> {/* Title of the uploader */}
+      <h3 className="fileuploader-title">Choose a file</h3> {/* Title of the uploader */}
       {/* File input to select the file */}
       <Input type="file" onChange={(e) => setFile(e.target.files?.[0] || null)} />
       {/* Button to trigger the file upload */}

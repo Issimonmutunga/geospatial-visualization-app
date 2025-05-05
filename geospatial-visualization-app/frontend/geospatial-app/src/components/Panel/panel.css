@@ -1,12 +1,24 @@
-.panel-card{
-    /*position: absolute; Floating window mode */
-    top: 150px;/* 150 px from the top */
-    left: 0;/* Stuck to the left edge */
-    z-index: 50 ;/* Shows above most content */
-    width: 250px; /* Fixed width */
-    height: 40vh;/* Height scales with screen */
-    padding: 1rem ;/* 16px spacing around content*/
-    background-color: white ;/* */
-    border-radius: 0.75rem;/* */
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1); /* Subtle 3D Effect */   
+.panel-card {
+    width: 35vw; /* Fixed width */
+    /* height: 40vh; Height scales with screen */
+    padding: 1.5rem ;/* 16px spacing around content*/
+    background-color: rgb(173, 216, 230);/* */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.06);/* Subtle 3D Effect */ 
+    margin: 2px;
+}
+.panel-title {
+    font-size: 1.2rem; /* Increases font size for visual hierarchy */
+    font-weight: 600; /* Makes the text semi-bold for emphasis */
+    margin-bottom: 0.5rem; /* Adds spacing below the title */
+}
+@media (max-width: 768px) {
+    .card-container {
+        flex-direction: column;
+        align-items: center;
+    }
+    .column {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
 }

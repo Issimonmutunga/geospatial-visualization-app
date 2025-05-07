@@ -1,47 +1,85 @@
-.prediction-panel {
-    width: 35vw;
-    padding: 1.5rem; /* Adds inner spacing for content breathing room */
-    background-color: rgb(136, 153, 172);/* Sets a clean white background */
-    border: 1px solid #e0e0e0; /* Adds a light border for subtle separation */
-    border-radius: 12px 0 0 0; /* Rounds the corners for a softer look */
-    box-shadow: 0 4px 8px rgba(0,0,0,0.06); /* Adds depth with a gentle shadow */
-    display: flex; /* Enables vertical layout of child elements */
-    flex-direction: column; /* Stacks children vertically */
-    gap: 1rem; /* Adds space between child elements */
-}
-
-.prediction-title {
-    font-size: 1.2rem; /* Increases font size for visual hierarchy */
-    font-weight: 600; /* Makes the text semi-bold for emphasis */
-    margin-bottom: 0.5rem; /* Adds spacing below the title */
+/* Root container styled as a card */
+.prediction-card {
+    width: 100%;
+    padding: 1.5rem;
+    background-color: white;
+    border: 2px solid #e0e0e0;
+    box-shadow: 8px 8px 8px rgba(0, 0, 0, 0.06);
+    display: flex;
+    flex-direction: column;
     gap: 1rem;
-    padding: 1.5rem 
-}
-
-.prediction-input {
-    margin-bottom: 1rem; /* Adds spacing below the input field */
-    padding: 1.5rem ;
-}
-
-.prediction-button {
-    width: 100%; /* Makes the button stretch to the full width */
-    padding: 1.5rem 
-}
-
-.prediction-result {
-    /* margin-top: 1rem; Adds spacing above the result */
-    font-size: 0.875rem; /* Reduces the font size for the result */
-    padding: 1rem;
-}
-
-@media (max-width: 768px) {
-    .card-container {
-        flex-direction: column;
-        align-items: center;
+    border-radius: 12px;
+    box-sizing: border-box;
+    margin-bottom: 1rem;
+  }
+  
+  /* Title styling */
+  .prediction-title {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 1rem;
+  }
+  
+  /* Input field styling */
+  .prediction-input {
+    width: 100%;
+    padding: 0.75rem;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    font-size: 1rem;
+    color: #333;
+  }
+  
+  .prediction-input::placeholder {
+    color: #aaa;
+  }
+  
+  /* Button styling */
+  .prediction-button {
+    background-color: #007bff;
+    color: white;
+    padding: 0.75rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s;
+  }
+  
+  .prediction-button:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Prediction result styling */
+  .prediction-result {
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: #333;
+    margin-top: 1rem;
+    padding: 0.75rem;
+    background-color: #f8f9fa;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+  }
+  
+  /* Responsive design for smaller screens */
+  @media (max-width: 768px) {
+    .prediction-card {
+      width: 100%;
     }
-    .column {
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: center;
+  
+    .prediction-title {
+      font-size: 1rem;
     }
-}
+  
+    .prediction-input {
+      font-size: 0.875rem;
+    }
+  
+    .prediction-button {
+      font-size: 0.875rem;
+    }
+  }
+  

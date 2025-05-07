@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react"; // React and hooks (useState
 import axios from "../../api"; // Axios instance for making HTTP requests
 import { ScrollArea } from "../ui/scroll-area"; // Custom ScrollArea component
 import { Card } from "../ui/card"; // Custom Card component
-import "./panel.css"; // Custom CSS for Panel component
+import "./Panel.css"; // Custom CSS for Panel component
 
 const Panel = () => {
   const [files, setFiles] = useState([]); // State to hold the list of files

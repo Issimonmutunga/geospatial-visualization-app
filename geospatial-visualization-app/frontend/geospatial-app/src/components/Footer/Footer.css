@@ -1,0 +1,38 @@
+.footer {
+    background-color: #004466; /* Darker background for contrast */
+    color: #ccc;
+    padding: 20px 0;
+    text-align: center;
+    margin-top: 40px;
+  }
+  
+  .footer-content {
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+  
+  .footer-brand {
+    font-weight: bold;
+    font-size: 18px;
+    display: block;
+    margin-bottom: 5px;
+    color: #fff; /* Will now show on dark background */
+  }
+  
+  .footer-text {
+    font-size: 14px;
+    margin-bottom: 10px;
+    display: block;
+  }
+  
+  .footer-links a {
+    margin: 0 10px;
+    color: #ccc;
+    text-decoration: none;
+    font-size: 14px;
+  }
+  
+  .footer-links a:hover {
+    color: #fff;
+  }
+  

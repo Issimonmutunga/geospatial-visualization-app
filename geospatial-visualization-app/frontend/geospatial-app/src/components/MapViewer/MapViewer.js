@@ -5,6 +5,7 @@ import axios from "../../api"; // Axios instance for making HTTP requests
 import L from "leaflet"; // Leaflet library for map manipulations
 import "leaflet/dist/leaflet.css"; // Import Leaflet CSS for map styling
 import "./MapViewer.css"; // Custom CSS for MapViewer component
+import { ClipLoader } from "react-spinners"; // Loading spinner component
 
 // Component to fit the map bounds to the GeoJSON data
 const FitBounds = ({ geoData }) => {
@@ -66,7 +67,11 @@ const MapViewer = () => {
       <aside className="mapviewer-sidebar w-1/4">
         {/* Display error or loading state in the sidebar */}
         {error && <p className="text-red-500">{error}</p>}
-        {loading && <p className="text-gray-500">Loading map data...</p>}
+        {loading && (
+          <div className="flex justify-center items-center">
+            <ClipLoader color="#00bcd4" loading={loading} size={40} />
+          </div>
+        )}
       </aside>
       <main className="w-3/4 relative">
         {/* Map container to display the map */}

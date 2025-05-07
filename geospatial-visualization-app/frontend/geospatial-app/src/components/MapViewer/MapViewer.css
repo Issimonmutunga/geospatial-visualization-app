@@ -1,28 +1,61 @@
+/* Map styles for the MapViewer component */
 .mapviewer-map {
     right: 0;
-    width: 100%; /* Limits the map width to 40% of its parent container */
+    width: 100%; /* Ensures the map spans the full width of its container */
     height: 50vh; /* Sets the map height to half of the viewport height */
-    /*  border-width: 10px; Applies a thick border (actual border style/color should be set elsewhere) */
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1); /* Adds a soft shadow for depth */
-    background-color: rgb(173, 216, 230);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Adds a soft shadow for depth */
+    background-color: rgb(173, 216, 230); /* Light blue background color */
+    border-radius: 8px; /* Adds rounded corners to the map */
+    flex-grow: 1; /* Allows the map to grow and fill available space */
 }
 
 /* Sidebar styles for the MapViewer component */
 .mapviewer-sidebar {
-    background-color: #f9fafb; /* Sets a very light gray background for contrast */
+    background-color: #f9fafb; /* Very light gray background for contrast */
     padding: 1rem; /* Adds inner spacing for better readability */
-    font-size: 0.875rem; /* Sets text size to small for compact layout */
-    color: #333; /* Uses dark gray for better text legibility */
+    font-size: 0.875rem; /* Smaller text for a compact layout */
+    color: #333; /* Dark gray text for better legibility */
+    box-shadow: 2px 0 8px rgba(0, 0, 0, 0.1); /* Adds a soft shadow for depth */
+    border-radius: 8px 0 0 8px; /* Rounded corners on the left side */
+    width: 25%; /* Sidebar takes up 25% of the screen width on desktop */
+    min-width: 250px; /* Prevents the sidebar from shrinking too small */
+    max-width: 350px; /* Limits maximum sidebar width */
+    position: sticky;
+    top: 0;
+    height: 100vh; /* Sidebar height should match the viewport height */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
 }
 
+/* Wrapper for the map and sidebar layout */
+.mapviewer-container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    height: 100vh; /* Full viewport height */
+}
+
+/* Mobile responsiveness for smaller screens */
 @media (max-width: 768px) {
-    .card-container {
-        flex-direction: column;
-        align-items: center;
+    .mapviewer-container {
+        flex-direction: column; /* Stack map and sidebar on mobile */
     }
-    .column {
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: center;
+
+    .mapviewer-map {
+        height: 60vh; /* Adjust map height on mobile */
+    }
+
+    .mapviewer-sidebar {
+        width: 100%; /* Sidebar takes full width on small screens */
+        border-radius: 8px 8px 0 0; /* Rounded corners for the top of the sidebar */
+        box-shadow: none; /* Remove the shadow on mobile for a cleaner look */
+        position: relative; /* Position relative for mobile */
+        height: auto; /* Sidebar adjusts height based on content */
+    }
+
+    /* Optional: Adjust font size for better readability on mobile */
+    .mapviewer-sidebar p {
+        font-size: 1rem;
     }
 }

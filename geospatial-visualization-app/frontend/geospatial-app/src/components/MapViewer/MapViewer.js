@@ -4,8 +4,8 @@ import "leaflet/dist/leaflet.css";
 import "./MapViewer.css";
 
 const MapViewer = () => {
-  const defaultCenter = [30, 10];
-  const defaultZoom = 2;
+  const defaultCenter = [30, 3];
+  const defaultZoom = 4;
 
   return (
     <div className="mapviewer-map">

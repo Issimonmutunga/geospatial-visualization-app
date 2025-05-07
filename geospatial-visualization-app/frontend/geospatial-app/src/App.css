@@ -1,18 +1,20 @@
-/* Base layout remains unchanged */
+/* Base layout */
 .app {
   font-family: Arial, Helvetica, sans-serif;
   background-color: rgb(173, 216, 230);
   border-radius: 12px;
-  padding: 20px;
-  height: 100vh;
+  padding: 10px;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
+  box-sizing: border-box;
 }
 
 .app-header {
   color: rgb(135, 104, 104);
   text-align: center;
   margin: 0;
+  font-size: 1.5rem;
 }
 
 .app-subheader {
@@ -20,13 +22,14 @@
   text-align: center;
   margin-top: 0.5rem;
   margin-bottom: 1rem;
+  font-size: 1rem;
 }
 
 .main-row {
   display: flex;
   flex: 1;
+  gap: 0.5rem;
   overflow: hidden;
-  gap: 1rem;
 }
 
 /* Card styling */
@@ -34,8 +37,10 @@
   background: #fff;
   border-radius: 10px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  padding: 1rem;
-  margin-bottom: 1rem;
+  padding: 0.75rem;
+  margin-bottom: 0.75rem;
+  height: 100%; /* Fill available height */
+  overflow: auto; /* Allow scrolling within card if content overflows */
 }
 
 .map-card {
@@ -49,17 +54,15 @@
   display: flex;
   flex-direction: column;
   width: 30%;
-  height: 100%;
   background-color: transparent;
-  /*padding: 1rem 1rem 1rem 1rem;*/
+  padding: 0.75rem;
   box-sizing: border-box;
-  overflow-y: auto;
 }
 
 /* Right column styles */
 .right-column {
   flex: 1;
-  padding: 1rem 0 1rem 0.5rem;
+  padding: 0.75rem 0 0.75rem 0.5rem;
   background-color: rgb(173, 216, 230);
   box-sizing: border-box;
   overflow: hidden;
@@ -68,21 +71,197 @@
 /* Footer */
 .bottom {
   text-align: center;
-  padding: 0.75rem;
+  padding: 0.5rem;
   color: #333;
-  font-size: 0.9rem;
-  margin-top: auto;
+  font-size: 0.8rem;
 }
 
-/* Responsive */
+/* Menu button styling */
+.menu-button {
+  display: none; /* Hidden on desktop */
+  background-color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 0.5rem;
+  align-self: flex-start;
+}
+
+.menu-button:hover {
+  background-color: #f0f0f0;
+}
+
+/* Sidebar styling */
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.sidebar-item {
+  background-color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 0.5rem;
+  font-size: 0.9rem;
+  cursor: pointer;
+  text-align: left;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.2s ease;
+}
+
+.sidebar-item:hover {
+  background-color: #f0f0f0;
+}
+
+.sidebar-item.active {
+  background-color: rgb(135, 104, 104);
+  color: #fff;
+}
+
+/* Card container */
+.card-container {
+  flex: 1; /* Take remaining space */
+  display: flex;
+  flex-direction: column;
+}
+
+/* Ensure no scrolling on desktop */
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow: hidden;
+}
+
+#root {
+  height: 100%;
+}
+
+.app {
+  height: 100%;
+}
+
+/* Responsive adjustments */
 @media (max-width: 768px) {
+  .app {
+    padding: 8px;
+  }
+
   .main-row {
     flex-direction: column;
+    gap: 0.5rem;
   }
 
   .left-column,
   .right-column {
     width: 100%;
     height: auto;
+    padding: 0.5rem;
+  }
+
+  .app-header {
+    font-size: 1.25rem;
+  }
+
+  .app-subheader {
+    font-size: 0.9rem;
+  }
+
+  .card {
+    padding: 0.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .bottom {
+    font-size: 0.75rem;
+  }
+
+  /* Hide components by default on mobile */
+  .app-header,
+  .app-subheader,
+  .main-row,
+  .bottom {
+    display: none;
+  }
+
+  /* Hide right-column completely on mobile when menu is open */
+  .menu-open .main-row .right-column {
+    display: none;
+  }
+
+  /* Show menu button on mobile */
+  .menu-button {
+    display: block;
+  }
+
+  /* Show select components when menu is open */
+  .menu-open .app-header,
+  .menu-open .app-subheader,
+  .menu-open .main-row,
+  .menu-open .bottom {
+    display: block;
+  }
+
+  /* Ensure main-row only shows left-column content */
+  .menu-open .main-row {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+/* Additional mobile-specific adjustments for smaller screens */
+@media (max-width: 480px) {
+  .app {
+    padding: 5px;
+    border-radius: 8px;
+  }
+
+  .app-header {
+    font-size: 1rem;
+  }
+
+  .app-subheader {
+    font-size: 0.8rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .main-row {
+    gap: 0.3rem;
+  }
+
+  .left-column,
+  .right-column {
+    padding: 0.3rem;
+  }
+
+  .card {
+    padding: 0.4rem;
+    border-radius: 6px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  .map-card {
+    min-height: 200px; /* For when visible */
+  }
+
+  .bottom {
+    font-size: 0.7rem;
+    padding: 0.3rem;
+  }
+
+  .menu-button {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.9rem;
+  }
+
+  .sidebar-item {
+    padding: 0.4rem;
+    font-size: 0.85rem;
   }
 }

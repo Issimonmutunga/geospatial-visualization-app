@@ -2,6 +2,7 @@ import React from "react";
 import { MapContainer, TileLayer } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import "./MapViewer.css";
+import { MapContext } from "../MapContext";
 
 const MapViewer = () => {
   const defaultCenter = [30, 3];

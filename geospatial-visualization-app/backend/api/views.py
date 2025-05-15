@@ -3,7 +3,6 @@ import zipfile
 import tempfile
 import json
 import logging
-
 import geopandas as gpd
 import pyproj
 from osgeo import ogr, osr
